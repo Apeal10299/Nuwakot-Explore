@@ -22,7 +22,7 @@ function clean($value)
 
 try {
     // Replace these with your Supabase credentials or Vercel Environment Variables
-    $host = getenv('DB_HOST') ?: "db.xxxxxx.supabase.co";
+    $host = getenv('DB_HOST') ?: "uekhkoxsjejeqmgquild.supabase.co";
     $port = "5432";
     $dbName = getenv('DB_NAME') ?: "postgres";
     $user = getenv('DB_USER') ?: "postgres";
