@@ -165,7 +165,7 @@ try {
 $db->exec("
 CREATE TABLE IF NOT EXISTS feedback (
 
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id SERIAL PRIMARY KEY,
 
     guide_id INTEGER NOT NULL,
 
@@ -175,7 +175,7 @@ CREATE TABLE IF NOT EXISTS feedback (
 
     comment TEXT,
 
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 
     FOREIGN KEY (guide_id)
     REFERENCES guides(id)
@@ -191,7 +191,7 @@ CREATE TABLE IF NOT EXISTS feedback (
 $db->exec("
 CREATE TABLE IF NOT EXISTS tour_history (
 
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id SERIAL PRIMARY KEY,
 
     guide_id INTEGER NOT NULL,
 
@@ -203,7 +203,7 @@ CREATE TABLE IF NOT EXISTS tour_history (
 
     duration TEXT,
 
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 
     FOREIGN KEY (guide_id)
     REFERENCES guides(id)
