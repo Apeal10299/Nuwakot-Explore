@@ -4,13 +4,12 @@
 // ONE-FILE PHP + SQLITE WEBSITE
 // ============================================================
 
+// ============================================================
 session_start();
 
 // ============================================================
-// DATABASE CONNECTION
+// DATABASE CONNECTION (Cloud PostgreSQL via Supabase)
 // ============================================================
-
-$dbFile = __DIR__ . "/nuwakot_tourism.db";
 
 function clean($value)
 {
@@ -22,22 +21,24 @@ function clean($value)
 }
 
 try {
+    // Replace these with your Supabase credentials or Vercel Environment Variables
+    $host = getenv('DB_HOST') ?: "db.xxxxxx.supabase.co";
+    $port = "5432";
+    $dbName = getenv('DB_NAME') ?: "postgres";
+    $user = getenv('DB_USER') ?: "postgres";
+    $pass = getenv('DB_PASS') ?: "@Peal9742912541";
 
-    $db = new PDO("sqlite:" . $dbFile);
-
-    $db->setAttribute(
-        PDO::ATTR_ERRMODE,
-        PDO::ERRMODE_EXCEPTION
-    );
-
-    $db->exec("PRAGMA foreign_keys = ON");
+    $dsn = "pgsql:host=$host;port=$port;dbname=$dbName";
+    
+    $db = new PDO($dsn, $user, $pass, [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+    ]);
 
 } catch (PDOException $e) {
-
     die(
         "<h2>Database Error</h2>
         <p>" . htmlspecialchars($e->getMessage()) . "</p>
-        <p>Make sure PDO SQLite is enabled in PHP.</p>"
+        <p>Make sure your cloud database credentials are correct.</p>"
     );
 }
 
