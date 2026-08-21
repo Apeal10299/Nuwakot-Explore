@@ -19,14 +19,12 @@ function clean($value)
         "UTF-8"
     );
 }
-
 try {
-    // Replace these with your Supabase credentials or Vercel Environment Variables
-    $host = getenv('DB_HOST') ?: "uekhkoxsjejeqmgquild.supabase.co";
+    $host = "aws-0-ap-southeast-2.pooler.supabase.com";
     $port = "5432";
-    $dbName = getenv('DB_NAME') ?: "postgres";
-    $user = getenv('DB_USER') ?: "postgres";
-    $pass = getenv('DB_PASS') ?: "@Peal9742912541";
+    $dbName = "postgres";
+    $user = "postgres.uekhkoxsjejeqmgquild";
+    $pass = "@Peal9742912541"; // Put your real database password here
 
     $dsn = "pgsql:host=$host;port=$port;dbname=$dbName";
     
@@ -37,11 +35,9 @@ try {
 } catch (PDOException $e) {
     die(
         "<h2>Database Error</h2>
-        <p>" . htmlspecialchars($e->getMessage()) . "</p>
-        <p>Make sure your cloud database credentials are correct.</p>"
+        <p>" . htmlspecialchars($e->getMessage()) . "</p>"
     );
 }
-
 
 // ============================================================
 // CREATE USERS TABLE
