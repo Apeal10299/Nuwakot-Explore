@@ -1791,6 +1791,38 @@ textarea {
     font-size: 12px;
 }
 
+    .table-responsive {
+            width: 100%;
+            max-height: 290px;
+            overflow-y: auto;
+            overflow-x: auto;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            font-size: 0.82rem;
+            white-space: nowrap;
+        }
+
+        .data-table th, .data-table td {
+            padding: 0.65rem 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .data-table th { 
+            position: sticky;
+            top: 0;
+            background-color: #f8fafc; 
+            color: #475569; 
+            font-weight: 600;
+            z-index: 10;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
 
 /* ============================================================
    WEATHER
